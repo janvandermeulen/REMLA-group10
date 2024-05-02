@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "phishing-detection"
+version = "0.1.0"
+description = ""
+authors = ["Jan <j2000.vdm@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+keras = "3.2.1"
+matplotlib = "3.8.4"
+tensorflow = "2.16.1"
+scikit-learn = "1.2.2"
+numpy = "1.26.4"
+pandas = "2.2.2"
+seaborn ="0.13.2"
+jupyter = "1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
