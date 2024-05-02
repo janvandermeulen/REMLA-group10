@@ -1,0 +1,12 @@
+batch_test: 5000
+batch_train: 5000
+categories:
+- phishing
+- legitimate
+char_index: null
+dataset_dir: ../dataset/small_dataset/
+embedding_dimension: 50
+epoch: 30
+loss_function: binary_crossentropy
+optimizer: adam
+sequence_length: 200
