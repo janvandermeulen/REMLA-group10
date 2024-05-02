@@ -10,7 +10,7 @@ from keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import classification_report, confusion_matrix
 
-def preprocess_data(raw_X_train: list[str], raw_y_train: list[str], raw_X_val: list[str], raw_y_val: list[str], raw_X_test: list[str], raw_y_test: list[str], sequence_length: int = 200): 
+def preprocess_data(raw_X_train: list[str], raw_y_train: list[str], raw_X_val: list[str], raw_y_val: list[str], raw_X_test: list[str], raw_y_test: list[str], sequence_length: int = 200) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, dict[str, int]]: 
     """
     Preprocess the data for training the model.
 
