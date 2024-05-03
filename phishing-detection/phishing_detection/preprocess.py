@@ -1,12 +1,12 @@
 from sklearn.preprocessing import LabelEncoder
-from tensorflow.keras.preprocessing.text import Tokenizer
+from keras._tf_keras.keras.preprocessing.sequence import Tokenizer
 import numpy as np
 import pandas as pd
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from keras._tf_keras.keras.preprocessing.sequence import pad_sequences
 import matplotlib.pyplot as plt
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Embedding, Conv1D, MaxPooling1D, Flatten
-from keras.preprocessing.sequence import pad_sequences
+from keras._tf_keras.keras.models import Sequential
+from keras._tf_keras.keras.layers import Dense, Dropout, Embedding, Conv1D, MaxPooling1D, Flatten
+from keras._tf_keras.keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import classification_report, confusion_matrix
 
@@ -36,7 +36,6 @@ def preprocess_data(raw_X_train: list[str], raw_y_train: list[str], raw_X_val: l
     X_train = pad_sequences(tokenizer.texts_to_sequences(raw_X_train), maxlen=sequence_length)
     X_val = pad_sequences(tokenizer.texts_to_sequences(raw_X_val), maxlen=sequence_length)
     X_test = pad_sequences(tokenizer.texts_to_sequences(raw_X_test), maxlen=sequence_length)
-
     encoder = LabelEncoder()
 
     y_train = encoder.fit_transform(raw_y_train)

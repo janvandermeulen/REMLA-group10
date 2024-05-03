@@ -1,5 +1,5 @@
-from keras.models import Sequential, Model
-from keras.layers import Embedding, Conv1D, MaxPooling1D, Flatten, Dense, Dropout
+from keras._tf_keras.keras.models import Sequential, Model
+from keras._tf_keras.keras.layers import Embedding, Conv1D, MaxPooling1D, Flatten, Dense, Dropout
 
 
 def build_model(char_index: dict, params: dict) -> Model:
