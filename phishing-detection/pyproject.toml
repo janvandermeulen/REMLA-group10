@@ -6,9 +6,10 @@ authors = ["Jan <j2000.vdm@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-keras = "3.2.1"
+python = ">=3.11,<3.12"
+keras = "3.3.3"
 matplotlib = "3.8.4"
+tensorflow-io-gcs-filesystem = "0.31.0"
 tensorflow = "2.16.1"
 scikit-learn = "1.2.2"
 numpy = "1.26.4"
