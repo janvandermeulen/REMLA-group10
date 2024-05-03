@@ -9,32 +9,38 @@ from keras.layers import Dense, Dropout, Embedding, Conv1D, MaxPooling1D, Flatte
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import classification_report, confusion_matrix
-# Stage 1: Preprocess the data
-# Load in the dataset
-# TODO: fix the sources
-train = [line.strip() for line in open("/kaggle/input/dl-dataset/DL Dataset/train.txt", "r").readlines()[1:]]
-raw_x_train = [line.split("\t")[1] for line in train]
-raw_y_train = [line.split("\t")[0] for line in train]
 
-test = [line.strip() for line in open("/kaggle/input/dl-dataset/DL Dataset/test.txt", "r").readlines()]
-raw_x_test = [line.split("\t")[1] for line in test]
-raw_y_test = [line.split("\t")[0] for line in test]
+def preprocess_data(raw_X_train: list[str], raw_y_train: list[str], raw_X_val: list[str], raw_y_val: list[str], raw_X_test: list[str], raw_y_test: list[str], sequence_length: int = 200) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, dict[str, int]]: 
+    """
+    Preprocess the data for training the model.
 
-val=[line.strip() for line in open("/kaggle/input/dl-dataset/DL Dataset/val.txt", "r").readlines()]
-raw_x_val=[line.split("\t")[1] for line in val]
-raw_y_val=[line.split("\t")[0] for line in val]
+    Args:
+        raw_X_train: List of strings containing the training data.
+        raw_y_train: List of strings containing the training labels.
+        raw_X_val: List of strings containing the validation data.
+        raw_y_val: List of strings containing the validation labels.
+        raw_X_test: List of strings containing the test data.
+        raw_y_test: List of strings containing the test labels.
+        sequence_length: The length of the sequences to pad the data to.
 
-# Tokenize the dataset
-tokenizer = Tokenizer(lower=True, char_level=True, oov_token='-n-')
-tokenizer.fit_on_texts(raw_x_train + raw_x_val + raw_x_test)
-char_index = tokenizer.word_index
-sequence_length=200
-x_train = pad_sequences(tokenizer.texts_to_sequences(raw_x_train), maxlen=sequence_length)
-x_val = pad_sequences(tokenizer.texts_to_sequences(raw_x_val), maxlen=sequence_length)
-x_test = pad_sequences(tokenizer.texts_to_sequences(raw_x_test), maxlen=sequence_length)
+    Returns:
+        Tuple of preprocessed data.
 
-encoder = LabelEncoder()
+    """
 
-y_train = encoder.fit_transform(raw_y_train)
-y_val = encoder.transform(raw_y_val)
-y_test = encoder.transform(raw_y_test)
+    # Tokenize the dataset
+    tokenizer = Tokenizer(lower=True, char_level=True, oov_token='-n-')
+    tokenizer.fit_on_texts(raw_X_train + raw_X_val + raw_X_test)
+    char_index = tokenizer.word_index
+
+    X_train = pad_sequences(tokenizer.texts_to_sequences(raw_X_train), maxlen=sequence_length)
+    X_val = pad_sequences(tokenizer.texts_to_sequences(raw_X_val), maxlen=sequence_length)
+    X_test = pad_sequences(tokenizer.texts_to_sequences(raw_X_test), maxlen=sequence_length)
+
+    encoder = LabelEncoder()
+
+    y_train = encoder.fit_transform(raw_y_train)
+    y_val = encoder.transform(raw_y_val)
+    y_test = encoder.transform(raw_y_test)
+
+    return X_train, y_train, X_val, y_val, X_test, y_test, char_index

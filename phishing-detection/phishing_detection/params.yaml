@@ -4,9 +4,9 @@ categories:
 - phishing
 - legitimate
 char_index: null
-dataset_dir: ../dataset/small_dataset/
+dataset_dir: ../dataset/small_dataset/  # TODO why?
 embedding_dimension: 50
-epoch: 30
+epoch: 2
 loss_function: binary_crossentropy
 optimizer: adam
 sequence_length: 200
