@@ -1,16 +1,18 @@
 from sklearn.preprocessing import LabelEncoder
-from keras._tf_keras.keras.preprocessing.sequence import Tokenizer
+#from sklearn.metrics import classification_report, confusion_matrix
+from keras._tf_keras.keras.preprocessing.text import Tokenizer
+from keras._tf_keras.keras.preprocessing.sequence import pad_sequences
+#from keras._tf_keras.keras.models import Sequential
+#from keras._tf_keras.keras.layers import Dense, Dropout, Embedding, Conv1D, MaxPooling1D, Flatten
 import numpy as np
-import pandas as pd
-from keras._tf_keras.keras.preprocessing.sequence import pad_sequences
-import matplotlib.pyplot as plt
-from keras._tf_keras.keras.models import Sequential
-from keras._tf_keras.keras.layers import Dense, Dropout, Embedding, Conv1D, MaxPooling1D, Flatten
-from keras._tf_keras.keras.preprocessing.sequence import pad_sequences
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import classification_report, confusion_matrix
+#import pandas as pd
+#import matplotlib.pyplot as plt
 
-def preprocess_data(raw_X_train: list[str], raw_y_train: list[str], raw_X_val: list[str], raw_y_val: list[str], raw_X_test: list[str], raw_y_test: list[str], sequence_length: int = 200) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, dict[str, int]]: 
+
+def preprocess_data(raw_X_train: list[str], raw_y_train: list[str],
+                    raw_X_val: list[str], raw_y_val: list[str],
+                    raw_X_test: list[str], raw_y_test: list[str], sequence_length: int = 200
+                    ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, dict[str, int]]:
     """
     Preprocess the data for training the model.
 

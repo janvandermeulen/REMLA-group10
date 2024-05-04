@@ -15,7 +15,7 @@ def build_model(char_index: dict, params: dict) -> Model:
 
     """
     voc_size = len(char_index.keys())
-    print("voc_size: {}".format(voc_size))  # TODO remove if not needed for anything
+    #print("voc_size: {}".format(voc_size))  # TODO remove if not needed for anything, if needed use fstring instead
     dropout_rate = 0.2  # This can be parameterized in `params` if varying dropout rates are needed.
 
     model = Sequential()
