@@ -2,18 +2,17 @@
 Provides functions to preprocess data.
 
 """
-
+import sys
+import utils
+import numpy as np
+#import pandas as pd
+#import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 #from sklearn.metrics import classification_report, confusion_matrix
 from keras._tf_keras.keras.preprocessing.text import Tokenizer
 from keras._tf_keras.keras.preprocessing.sequence import pad_sequences
 #from keras._tf_keras.keras.models import Sequential
 #from keras._tf_keras.keras.layers import Dense, Dropout, Embedding, Conv1D, MaxPooling1D, Flatten
-import numpy as np
-#import pandas as pd
-#import matplotlib.pyplot as plt
-import sys
-import utils
 
 
 def preprocess_data(raw_X_train: list[str], raw_y_train: list[str],
@@ -55,6 +54,12 @@ def preprocess_data(raw_X_train: list[str], raw_y_train: list[str],
     return X_train, y_train, X_val, y_val, X_test, y_test, char_index
 
 def main():
+    """
+    Preprocess data and save result to file.
+
+    Returns:
+        None
+    """
     path = sys.argv[1]
 
     # Load data from text files

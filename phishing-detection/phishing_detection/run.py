@@ -21,12 +21,14 @@ from phishing_detection.preprocess import preprocess_data
 
 
 
-def run(params: dict) -> None:
+
+def run(params: dict, paramspath) -> None:
     """
     Runs the model with the given parameters.
 
     Parameters:
         params (dict): A dictionary containing parameters for the model training and evaluation.
+        path (String): Path to parammeter file
 
     Returns:
         None
@@ -36,7 +38,7 @@ def run(params: dict) -> None:
         run(params)
     """
     # Load data
-    X_train, y_train, X_val, y_val, X_test, y_test = load_data()
+    X_train, y_train, X_val, y_val, X_test, y_test = load_data(paramspath)
 
     # Preprocess data
     X_train, y_train, X_val, y_val, X_test, y_test, char_index = preprocess_data(
@@ -53,10 +55,10 @@ def run(params: dict) -> None:
     evaluation_results = evaluate_results(y_test, prediction)
 
     # plot confusion matrix
-    plot_confusion_matrix(evaluation_results['confusion_matrix']) # TODO save fig?
+    plot_confusion_matrix(evaluation_results['confusion_matrix']) #save fig?
 
 if __name__ == "__main__":
     path = os.path.join("phishing-detection", "phishing_detection", "params.yaml")
-    with open(path , encoding="UTF-8") as file:
+    with open(path ,encoding="UTF-8" ) as file:
         parameters = yaml.safe_load(file)
-    run(parameters)
+    run(parameters, path)

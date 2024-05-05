@@ -33,7 +33,7 @@ ignore-patterns=^\.#
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-#init-hook=
+init-hook='import sys; sys.path.append("./phishing_detection")'
 
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
 # number of processors available to use.
@@ -320,7 +320,7 @@ logging-modules=logging
 # List of note tags to take in consideration, separated by a comma.
 notes=FIXME,
       XXX,
-      TODO
+
 
 # Regular expression of note tags to take in consideration.
 #notes-rgx=

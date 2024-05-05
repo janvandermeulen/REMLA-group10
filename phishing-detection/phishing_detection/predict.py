@@ -2,14 +2,14 @@
 Provides functions to peform predictions.
 
 """
-from keras import Model
-from matplotlib import pyplot as plt
+import sys
 import numpy as np
-from sklearn.metrics import classification_report, confusion_matrix,accuracy_score
 import seaborn as sns
 import utils
+from keras import Model
 from keras._tf_keras.keras.models import load_model
-import sys
+from matplotlib import pyplot as plt
+from sklearn.metrics import classification_report, confusion_matrix,accuracy_score
 def predict_classes(model: Model, x_test: np.ndarray, threshold: float = 0.5) -> np.ndarray:
     """
     Predict class labels for samples in x_test.
@@ -23,7 +23,7 @@ def predict_classes(model: Model, x_test: np.ndarray, threshold: float = 0.5) ->
         Predicted binary labels for the samples in x_test.
     """
     y_pred = model.predict(x_test, batch_size=1000)
-    print(y_pred)   # TODO remove?
+
     # Convert predicted probabilities to binary labels
     y_pred_binary = (np.array(y_pred) > threshold).astype(int)
 
@@ -42,7 +42,7 @@ def evaluate_results(y_test: np.ndarray, y_pred_binary: np.ndarray) -> dict:
     Returns:
         A dictionary containing the classification report, confusion matrix, and accuracy score.
     """
-    # TODO do we want to print these here or in the run somewhere?
+
     y_test=y_test.reshape(-1,1)
 
     # Calculate classification report
@@ -82,8 +82,13 @@ def plot_confusion_matrix(confusion_mat: np.ndarray) -> plt.Figure:
 
 
 def main():
-    path = sys.argv[1]
+    """
+    Evaluate model and save plots
 
+    Returns:
+        None
+    """
+    path = sys.argv[1]
     # Load data from npy files
     X_test = np.load(f"{path}/preprocess/X_test.npy")
     y_test = np.load(f"{path}/preprocess/y_test.npy")
@@ -92,7 +97,7 @@ def main():
     prediction = predict_classes(model, X_test)
     evaluation_results = evaluate_results(y_test, prediction)
     utils.save_data_as_text(evaluation_results, f"{path}/results/results.txt")
-    
+
     fig = plot_confusion_matrix(evaluation_results['confusion_matrix'])
     fig.savefig(f"{path}/results/confusion_matrix.pdf")
 

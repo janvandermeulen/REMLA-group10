@@ -5,6 +5,12 @@ In this assignment we will be transferring a small kaggle model to a professiona
 - poetry for dependency management.
 
 ### How to run
-To run this codee you need to have poetry installed. You can install the packages by running the following command:
+To run this codee you need to have poetry installed. You can install the packages by running the following commands:
 - ```poetry install```
+- ```poetry shell```
+To retrieve the data and run the pipeline:
 - ```dvc pull```
+- ```dvc repro```
+To run the code quality metrics:
+- ```pylint ./phishing_detection```
+- ```bandit ./```
