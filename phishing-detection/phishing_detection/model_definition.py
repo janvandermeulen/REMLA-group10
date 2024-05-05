@@ -1,3 +1,7 @@
+"""
+Provides functions to create the model.
+
+"""
 from keras._tf_keras.keras.models import Sequential, Model
 from keras._tf_keras.keras.layers import Embedding, Conv1D, MaxPooling1D, Flatten, Dense, Dropout
 

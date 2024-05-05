@@ -1,8 +1,14 @@
+"""
+Provides functions for training a model.
+
+"""
+
 from keras._tf_keras.keras import Model
 from keras._tf_keras.keras.callbacks import History
 import numpy as np
 
-def train(model: Model, X_train: np.array, y_train: np.array, X_val: np.array, y_val: np.array, params: dict) -> History:
+def train(model: Model, X_train: np.array, y_train: np.array,
+          X_val: np.array, y_val: np.array, params: dict) -> History:
     """
     Train the model.
 
@@ -27,5 +33,5 @@ def train(model: Model, X_train: np.array, y_train: np.array, X_val: np.array, y
                     shuffle=True,
                     validation_data=(X_val, y_val)
                     )
-    
+
     return hist

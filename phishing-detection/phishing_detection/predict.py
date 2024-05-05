@@ -1,3 +1,7 @@
+"""
+Provides functions to peform predictions.
+
+"""
 from keras import Model
 from matplotlib import pyplot as plt
 import numpy as np
@@ -21,14 +25,14 @@ def predict_classes(model: Model, x_test: np.ndarray, threshold: float = 0.5) ->
     print(y_pred)   # TODO remove?
     # Convert predicted probabilities to binary labels
     y_pred_binary = (np.array(y_pred) > threshold).astype(int)
-    
+
     return y_pred_binary
 
 
 def evaluate_results(y_test: np.ndarray, y_pred_binary: np.ndarray) -> dict:
     """
-    Evaluate the results of a binary classification task. This function prints the classification report, confusion 
-    matrix, and accuracy score. In
+    Evaluate the results of a binary classification task. 
+    This function prints the classification report, confusion matrix, and accuracy score.
 
     Args:
         y_test: True binary labels.
@@ -53,7 +57,8 @@ def evaluate_results(y_test: np.ndarray, y_pred_binary: np.ndarray) -> dict:
     accuracy = accuracy_score(y_test, y_pred_binary)
     print('Accuracy:', accuracy)
 
-    return {'classification_report': report, 'confusion_matrix': confusion_mat, 'accuracy': accuracy}
+    return {'classification_report': report, 'confusion_matrix': confusion_mat,
+            'accuracy': accuracy}
 
 
 def plot_confusion_matrix(confusion_mat: np.ndarray) -> plt.Figure:

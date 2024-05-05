@@ -1,3 +1,8 @@
+"""
+Provides functions to preprocess data.
+
+"""
+
 from sklearn.preprocessing import LabelEncoder
 #from sklearn.metrics import classification_report, confusion_matrix
 from keras._tf_keras.keras.preprocessing.text import Tokenizer
@@ -12,7 +17,8 @@ import numpy as np
 def preprocess_data(raw_X_train: list[str], raw_y_train: list[str],
                     raw_X_val: list[str], raw_y_val: list[str],
                     raw_X_test: list[str], raw_y_test: list[str], sequence_length: int = 200
-                    ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, dict[str, int]]:
+                    ) -> tuple[np.ndarray, np.ndarray, np.ndarray,
+                               np.ndarray, np.ndarray, np.ndarray, dict[str, int]]:
     """
     Preprocess the data for training the model.
 

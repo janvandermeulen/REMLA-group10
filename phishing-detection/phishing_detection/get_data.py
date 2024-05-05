@@ -1,3 +1,8 @@
+"""
+Provides functions to load the data.
+
+"""
+
 def load_data():
     """
     Load train, test, and validation phishing data.
