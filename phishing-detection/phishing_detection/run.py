@@ -18,7 +18,7 @@ def run(params: dict) -> None:
     model = build_model(char_index, params)
 
     # Train model
-    hist = train(model, X_train, y_train, X_val, y_val, params)
+    model = train(model, X_train, y_train, X_val, y_val, params)
 
     # Evaluate model
     prediction = predict_classes(model, X_test)

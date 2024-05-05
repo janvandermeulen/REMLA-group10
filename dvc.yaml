@@ -1,0 +1,58 @@
+stages:
+  prepare:
+    cmd: python .\phishing-detection\phishing_detection\get_data.py data
+    deps:
+      - phishing-detection\phishing_detection\get_data.py
+      - data/train.txt
+      - data/test.txt
+      - data/val.txt
+    outs:
+      - data/raw/X_train.txt
+      - data/raw/y_train.txt
+      - data/raw/X_val.txt
+      - data/raw/y_val.txt
+      - data/raw/X_test.txt
+      - data/raw/y_test.txt
+  preprocess:
+    cmd : python .\phishing-detection\phishing_detection\preprocess.py data
+    deps:
+      - phishing-detection\phishing_detection\preprocess.py
+      - data/raw/X_train.txt
+      - data/raw/y_train.txt
+      - data/raw/X_val.txt
+      - data/raw/y_val.txt
+      - data/raw/X_test.txt
+      - data/raw/y_test.txt
+    outs:
+      - data/preprocess/X_train.npy
+      - data/preprocess/y_train.npy
+      - data/preprocess/X_val.npy
+      - data/preprocess/y_val.npy
+      - data/preprocess/X_test.npy
+      - data/preprocess/y_test.npy
+      - data/preprocess/char_index.json
+  train:
+    cmd:
+      - python .\phishing-detection\phishing_detection\model_definition.py data
+      - python .\phishing-detection\phishing_detection\train.py data
+    deps:
+      - phishing-detection\phishing_detection\model_definition.py
+      - phishing-detection\phishing_detection\train.py
+      - data/preprocess/X_train.npy
+      - data/preprocess/y_train.npy
+      - data/preprocess/X_val.npy
+      - data/preprocess/y_val.npy
+      - data/preprocess/char_index.json
+    outs:
+      - data/model/initial_model.keras
+      - data/model/trained_model.keras
+  test:
+    cmd: python .\phishing-detection\phishing_detection\predict.py data
+    deps:
+      - phishing-detection\phishing_detection\predict.py
+      - data/model/trained_model.keras
+      - data/preprocess/X_test.npy
+      - data/preprocess/y_test.npy
+    outs:
+      - data/results/results.txt
+      - data/results/confusion_matrix.pdf
