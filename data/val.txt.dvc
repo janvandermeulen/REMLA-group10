@@ -1,0 +1,5 @@
+outs:
+- md5: 7b1e28b1e91582c6f36e85517c3cc6ee
+  size: 46258330
+  hash: md5
+  path: val.txt

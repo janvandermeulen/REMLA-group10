@@ -1,0 +1,8 @@
+/X_train.npy
+/y_train.npy
+/X_val.npy
+/y_val.npy
+/X_test.npy
+/y_test.npy
+/char_index.npy
+/char_index.json

@@ -2,19 +2,22 @@
 name = "phishing-detection"
 version = "0.1.0"
 description = ""
-authors = ["Jan <j2000.vdm@gmail.com>", "Shayan Ramezani <s.ramezani@student.tudelft.nl>"]
+authors = ["Jan <j2000.vdm@gmail.com>", "Shayan Ramezani <s.ramezani@student.tudelft.nl>", "Remi Lejeune <R.J.Lejeune@student.tudelft.nl"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "~3.11"
+tensorflow = "2.16.1"
+tensorflow-io-gcs-filesystem ="0.31.0"
 keras = "3.2.1"
 matplotlib = "3.8.4"
-tensorflow = "2.16.1"
 scikit-learn = "1.2.2"
 numpy = "1.26.4"
 pandas = "2.2.2"
 seaborn ="0.13.2"
 jupyter = "1.0.0"
+dvc = "*"
+dvc-s3 = "*"
 
 [build-system]
 requires = ["poetry-core"]
