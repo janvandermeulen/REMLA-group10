@@ -1,0 +1,4 @@
+[core]
+    remote = aws
+['remote "aws"']
+    url = s3://dvc-remla/dvc

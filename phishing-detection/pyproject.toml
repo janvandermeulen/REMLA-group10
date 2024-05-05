@@ -17,6 +17,7 @@ pandas = "2.2.2"
 seaborn ="0.13.2"
 jupyter = "1.0.0"
 dvc = "*"
+dvc_s3 = "*"
 json = "*"
 
 [build-system]
