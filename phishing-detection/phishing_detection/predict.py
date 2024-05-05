@@ -7,8 +7,9 @@ from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.metrics import classification_report, confusion_matrix,accuracy_score
 import seaborn as sns
-
-
+import utils
+from keras._tf_keras.keras.models import load_model
+import sys
 def predict_classes(model: Model, x_test: np.ndarray, threshold: float = 0.5) -> np.ndarray:
     """
     Predict class labels for samples in x_test.
@@ -78,4 +79,23 @@ def plot_confusion_matrix(confusion_mat: np.ndarray) -> plt.Figure:
     plt.ylabel('True')
     plt.title('Confusion Matrix')
     return plt.gcf()
+
+
+def main():
+    path = sys.argv[1]
+
+    # Load data from npy files
+    X_test = np.load(f"{path}/preprocess/X_test.npy")
+    y_test = np.load(f"{path}/preprocess/y_test.npy")
+    model = load_model(f"{path}/model/trained_model.keras")
+
+    prediction = predict_classes(model, X_test)
+    evaluation_results = evaluate_results(y_test, prediction)
+    utils.save_data_as_text(evaluation_results, f"{path}/results/results.txt")
     
+    fig = plot_confusion_matrix(evaluation_results['confusion_matrix'])
+    fig.savefig(f"{path}/results/confusion_matrix.pdf")
+
+
+if __name__ == "__main__":
+    main()

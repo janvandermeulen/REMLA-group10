@@ -7,3 +7,4 @@ In this assignment we will be transferring a small kaggle model to a professiona
 ### How to run
 To run this codee you need to have poetry installed. You can install the packages by running the following command:
 - ```poetry install```
+- ```dvc pull```
