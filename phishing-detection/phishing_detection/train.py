@@ -52,8 +52,8 @@ def main():
     y_train = np.load(f"{path}/preprocess/y_train.npy")
     X_val = np.load(f"{path}/preprocess/X_val.npy")
     y_val = np.load(f"{path}/preprocess/y_val.npy")
-    path = os.path.join("phishing-detection", "phishing_detection", "params.yaml")
-    with open(path ,encoding="UTF-8" ) as file:
+    parampath = os.path.join("phishing-detection", "phishing_detection", "params.yaml")
+    with open(parampath ,encoding="UTF-8" ) as file:
         params = yaml.safe_load(file)
     model = load_model(f"{path}/model/initial_model.keras")
 
