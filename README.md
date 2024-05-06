@@ -13,4 +13,4 @@ To retrieve the data and run the pipeline:
 - ```dvc repro```
 To run the code quality metrics:
 - ```pylint ./phishing_detection```
-- ```bandit ./```
+- ```bandit ./ -r```
