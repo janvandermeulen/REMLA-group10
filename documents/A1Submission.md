@@ -14,7 +14,7 @@ Contributor: Remi Lejeune
 Reviewer: Michael Chan
 
 We uploaded the data to the a remote gdrive cloud bucket using dvc. The data is now versioned and can be accessed by all team members.
-Furthermore, we creared a reproduction pipeline. We have encountered some issues with DVC pull and it may not pull from cloud, in which case run dvc repro to reproduce the files.
+Furthermore, we created a reproduction pipeline. We have encountered some issues with DVC pull and it may not pull from cloud, in which case run dvc repro to reproduce the files.
 
 ### Task 3: Report metrics using DVC
 Pull request: https://github.com/janvandermeulen/REMLA-group10/pull/4  
@@ -30,6 +30,6 @@ We used pylint and bandit to audit the code quality. The README provides instruc
 A regex was created to accept names with a single capital letter between "_" as those are common names for matrix variables in data science, example of accepted names by regex: X_train, raw_X_train and X.
 TODO warnings have been suppressed temporarily. As this is still the first version there are still many things that could be improved that have been
 tagged as TODO for now, this should not affect the code quality.
-The number of arguments and local variables allowed has been increased as it is common in data science to seperate data such as trian and test in seperate local variables, this results in relatively more variables used.
-Bandit warning B106 about potential hardcoded access tokens has been suppressed as it falsely triggers on the usage of the word token which is prevalant in data science projects and has nothing to do with password/auth tokens.
+The number of arguments and local variables allowed has been increased as it is common in data science to separate data such as train and test in separate local variables, this results in relatively more variables used.
+Bandit warning B106 about potential hardcoded access tokens has been suppressed as it falsely triggers on the usage of the word token which is prevalent in data science projects and has nothing to do with password/auth tokens.
 
