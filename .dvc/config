@@ -2,5 +2,6 @@
     remote = s3-read
 ['remote "aws"']
     url = s3://dvc-remla/dvc
+    version_aware = true
 ['remote "s3-read"']
     url = https://dvc-remla.s3.amazonaws.com/dvc

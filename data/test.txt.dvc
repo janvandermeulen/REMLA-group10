@@ -3,3 +3,7 @@ outs:
   size: 32724891
   hash: md5
   path: test.txt
+  cloud:
+    aws:
+      etag: a1cab28ad8554fd9269d31e5708469d0
+      version_id: 'null'
