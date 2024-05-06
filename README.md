@@ -20,7 +20,7 @@ To retrieve the data and run the pipeline:
 - ```dvc pull``` (may not work)
 - ```dvc repro```
 
-To run the code quality metrics (this should be ran from the phishing-detection):
+To run the code quality metrics:
 (this should be executed in the phishing-detection folder)
 - ```pylint ./phishing_detection```
 - ```bandit ./ -r```
