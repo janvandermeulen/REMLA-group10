@@ -3,3 +3,7 @@ outs:
   size: 93921671
   hash: md5
   path: train.txt
+  cloud:
+    aws:
+      etag: 13fd241a41370119612d5b00b0433009
+      version_id: 'null'

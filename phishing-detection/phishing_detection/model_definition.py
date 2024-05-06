@@ -1,10 +1,13 @@
-from keras.models import Sequential, Model
-from keras.layers import Embedding, Conv1D, MaxPooling1D, Flatten, Dense, Dropout
-import yaml
-import sys
-import numpy as np
+"""
+Provides functions to create the model.
+
+"""
 import os
+import sys
 import utils
+import yaml
+from keras._tf_keras.keras.models import Sequential, Model
+from keras._tf_keras.keras.layers import Embedding, Conv1D, MaxPooling1D, Flatten, Dense, Dropout
 def build_model(char_index: dict, params: dict) -> Model:
     """
     Build a model for the phishing detection task
@@ -18,7 +21,7 @@ def build_model(char_index: dict, params: dict) -> Model:
 
     """
     voc_size = len(char_index.keys())
-    print("voc_size: {}".format(voc_size))  # TODO remove if not needed for anything
+    #print("voc_size: {}".format(voc_size))  # TODO remove if not needed for anything.
     dropout_rate = 0.2  # This can be parameterized in `params` if varying dropout rates are needed.
 
     model = Sequential()
@@ -55,11 +58,17 @@ def build_model(char_index: dict, params: dict) -> Model:
 
     return model
 
-
-
 def main():
+    """
+    Define model and save to path.
+
+    Returns:
+        None
+    """
     path = sys.argv[1]
-    params = yaml.safe_load(open(os.path.join("phishing-detection", "phishing_detection", "params.yaml")))
+    paramspath = os.path.join("phishing-detection", "phishing_detection", "params.yaml")
+    with open(paramspath, encoding="UTF-8") as file:
+        params = yaml.safe_load(file)
     char_index = utils.load_json(f"{path}/preprocess/char_index.json")
 
     model = build_model(char_index, params)

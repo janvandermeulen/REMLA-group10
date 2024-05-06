@@ -1,12 +1,17 @@
-from keras import Model
-from keras.callbacks import History
-from keras.models import load_model
-import numpy as np
+"""
+Provides functions for training a model.
+
+"""
 import sys
 import os
 import yaml
+import numpy as np
 
-def train(model: Model, X_train: np.array, y_train: np.array, X_val: np.array, y_val: np.array, params: dict) -> Model:
+from keras._tf_keras.keras import Model
+from keras._tf_keras.keras.models import load_model
+
+def train(model: Model, X_train: np.array, y_train: np.array,
+          X_val: np.array, y_val: np.array, params: dict) -> Model:
     """
     Train the model.
 
@@ -25,23 +30,31 @@ def train(model: Model, X_train: np.array, y_train: np.array, X_val: np.array, y
     model.compile(loss=params['loss_function'], optimizer=params['optimizer'], metrics=['accuracy'])
 
 
-    hist = model.fit(X_train, y_train,
-                    batch_size=params['batch_train'],
-                    epochs=params['epoch'],
-                    shuffle=True,
-                    validation_data=(X_val, y_val)
-                    )
-    
+    model.fit(X_train, y_train,
+                batch_size=params['batch_train'],
+                epochs=params['epoch'],
+                shuffle=True,
+                validation_data=(X_val, y_val)
+                )
+
     return model
 
 def main():
+    """
+    Train and save model.
+
+    Returns:
+        None
+    """
     path = sys.argv[1]
 
     X_train = np.load(f"{path}/preprocess/X_train.npy")
     y_train = np.load(f"{path}/preprocess/y_train.npy")
     X_val = np.load(f"{path}/preprocess/X_val.npy")
     y_val = np.load(f"{path}/preprocess/y_val.npy")
-    params = yaml.safe_load(open(os.path.join("phishing-detection", "phishing_detection", "params.yaml")))
+    parampath = os.path.join("phishing-detection", "phishing_detection", "params.yaml")
+    with open(parampath ,encoding="UTF-8" ) as file:
+        params = yaml.safe_load(file)
     model = load_model(f"{path}/model/initial_model.keras")
 
     trained_model = train(model, X_train, y_train, X_val, y_val, params)
