@@ -17,88 +17,64 @@ stages:
       size: 46258330
     - path: phishing-detection/phishing_detection/get_data.py
       hash: md5
-      md5: 19dd7b6be5f5d4155d3a186e400f328c
-      size: 1796
+      md5: bdf8f521e5c27faa0d177946a2ceac54
+      size: 1848
     outs:
     - path: data/raw/X_test.txt
       hash: md5
-      md5: 609e75fbf12e4f1ac9bdc1e40bf8c028
-      size: 29043540
-      cloud:
-        aws:
-          etag: 609e75fbf12e4f1ac9bdc1e40bf8c028
-          version_id: 'null'
+      md5: 1563282b483d43739f43f425200044c5
+      size: 29407738
     - path: data/raw/X_train.txt
       hash: md5
-      md5: 761b3fe3977c171bc5451c08d217f9cb
-      size: 83350996
-      cloud:
-        aws:
-          etag: 761b3fe3977c171bc5451c08d217f9cb
-          version_id: 'null'
+      md5: e30e89161e21482d56537c6d0889db94
+      size: 84396770
     - path: data/raw/X_val.txt
       hash: md5
-      md5: c74e4e1c602207a00f9a7d0b6f5cd612
-      size: 41051954
-      cloud:
-        aws:
-          etag: c74e4e1c602207a00f9a7d0b6f5cd612
-          version_id: 'null'
+      md5: 7d004257a712e5265a5bd985aee42979
+      size: 41567033
     - path: data/raw/y_test.txt
       hash: md5
-      md5: ee87127d4d350f71855f7645118a14e2
-      size: 3681252
-      cloud:
-        aws:
-          etag: ee87127d4d350f71855f7645118a14e2
-          version_id: 'null'
+      md5: 2e3c9d7f5cfbbbaa9ab11e95747c6b88
+      size: 4045450
     - path: data/raw/y_train.txt
       hash: md5
-      md5: a1baa255faeadb22c2b820464989699e
-      size: 10570508
-      cloud:
-        aws:
-          etag: a1baa255faeadb22c2b820464989699e
-          version_id: 'null'
+      md5: a2628fb8ca50c89fe1250772b8a50206
+      size: 11616282
     - path: data/raw/y_val.txt
       hash: md5
-      md5: e1b4662a77e310d40d02a627f0a5e26c
-      size: 5206339
-      cloud:
-        aws:
-          etag: e1b4662a77e310d40d02a627f0a5e26c
-          version_id: 'null'
+      md5: 3c330979d7cb08758fcd9d6feaf6aa04
+      size: 5721418
   preprocess:
     cmd: python ./phishing-detection/phishing_detection/preprocess.py data
     deps:
     - path: data/raw/X_test.txt
       hash: md5
-      md5: 609e75fbf12e4f1ac9bdc1e40bf8c028
-      size: 29043540
+      md5: 1563282b483d43739f43f425200044c5
+      size: 29407738
     - path: data/raw/X_train.txt
       hash: md5
-      md5: 761b3fe3977c171bc5451c08d217f9cb
-      size: 83350996
+      md5: e30e89161e21482d56537c6d0889db94
+      size: 84396770
     - path: data/raw/X_val.txt
       hash: md5
-      md5: c74e4e1c602207a00f9a7d0b6f5cd612
-      size: 41051954
+      md5: 7d004257a712e5265a5bd985aee42979
+      size: 41567033
     - path: data/raw/y_test.txt
       hash: md5
-      md5: ee87127d4d350f71855f7645118a14e2
-      size: 3681252
+      md5: 2e3c9d7f5cfbbbaa9ab11e95747c6b88
+      size: 4045450
     - path: data/raw/y_train.txt
       hash: md5
-      md5: a1baa255faeadb22c2b820464989699e
-      size: 10570508
+      md5: a2628fb8ca50c89fe1250772b8a50206
+      size: 11616282
     - path: data/raw/y_val.txt
       hash: md5
-      md5: e1b4662a77e310d40d02a627f0a5e26c
-      size: 5206339
+      md5: 3c330979d7cb08758fcd9d6feaf6aa04
+      size: 5721418
     - path: phishing-detection/phishing_detection/preprocess.py
       hash: md5
-      md5: 79ff87419fae0f3e0b6a8a2bd80f5891
-      size: 3403
+      md5: 755b39e473c43e878554eb91c365223b
+      size: 3490
     outs:
     - path: data/preprocess/X_test.npy
       hash: md5
@@ -134,12 +110,8 @@ stages:
           version_id: 'null'
     - path: data/preprocess/y_test.npy
       hash: md5
-      md5: 86612dc0b79d11ee7dcf2d30c62811eb
-      size: 2913712
-      cloud:
-        aws:
-          etag: 86612dc0b79d11ee7dcf2d30c62811eb
-          version_id: 'null'
+      md5: 311ff57eefa708370ff251eabff39a65
+      size: 1456920
     - path: data/preprocess/y_train.npy
       hash: md5
       md5: 9b660634af0db95a6e2932208bc73b91
@@ -150,12 +122,8 @@ stages:
           version_id: 'null'
     - path: data/preprocess/y_val.npy
       hash: md5
-      md5: 7d7c949969abb0303ea9373bf519cc84
-      size: 4120760
-      cloud:
-        aws:
-          etag: 7d7c949969abb0303ea9373bf519cc84
-          version_id: 'null'
+      md5: 1d5fa5d29393e97dbba3a5cd32813e14
+      size: 2060444
   train:
     cmd:
     - python ./phishing-detection/phishing_detection/model_definition.py data
@@ -179,39 +147,31 @@ stages:
       size: 8366320
     - path: data/preprocess/y_val.npy
       hash: md5
-      md5: 7d7c949969abb0303ea9373bf519cc84
-      size: 4120760
+      md5: 1d5fa5d29393e97dbba3a5cd32813e14
+      size: 2060444
     - path: phishing-detection/phishing_detection/model_definition.py
       hash: md5
-      md5: 55bf2a3bd2121357e99e4692aafa8e80
-      size: 2313
+      md5: a9147652d192df0b0c96b81a17835a28
+      size: 2391
     - path: phishing-detection/phishing_detection/train.py
       hash: md5
-      md5: 75a82a9d73ab0673dadbec5dc5594977
-      size: 1762
+      md5: de203b5cebd4d6fb83cd5dd841f5e822
+      size: 1827
     outs:
     - path: data/model/initial_model.keras
       hash: md5
-      md5: 55fa8ca50eb9cbd41efeeb61517fd987
+      md5: 8309bed8a584bb33e377a1183c811a21
       size: 49737
-      cloud:
-        aws:
-          etag: 55fa8ca50eb9cbd41efeeb61517fd987
-          version_id: fuk3nIlB7oWebpJr1wIei0B_9ECHeI.6
     - path: data/model/trained_model.keras
       hash: md5
-      md5: e44426bfc609504d8c358536c515327c
+      md5: 2b91e95957947219e7cf6edf3b1493e3
       size: 5472435
-      cloud:
-        aws:
-          etag: e44426bfc609504d8c358536c515327c
-          version_id: M4_Pdr8fKEXMEierQD5QaSLLkQU7_pGV
   test:
     cmd: python ./phishing-detection/phishing_detection/predict.py data
     deps:
     - path: data/model/trained_model.keras
       hash: md5
-      md5: e44426bfc609504d8c358536c515327c
+      md5: 2b91e95957947219e7cf6edf3b1493e3
       size: 5472435
     - path: data/preprocess/X_test.npy
       hash: md5
@@ -219,26 +179,18 @@ stages:
       size: 291358528
     - path: data/preprocess/y_test.npy
       hash: md5
-      md5: 86612dc0b79d11ee7dcf2d30c62811eb
-      size: 2913712
+      md5: 311ff57eefa708370ff251eabff39a65
+      size: 1456920
     - path: phishing-detection/phishing_detection/predict.py
       hash: md5
-      md5: 54883bf00811d49bb1f989fe9684b83d
-      size: 3042
+      md5: 4ccca662abbfa46adaf5d758052f70db
+      size: 3148
     outs:
     - path: data/results/confusion_matrix.pdf
       hash: md5
-      md5: 6576b0f2b5717eeed323ebd9dd7887bb
-      size: 14154
-      cloud:
-        aws:
-          etag: 6576b0f2b5717eeed323ebd9dd7887bb
-          version_id: 7v9CKf_3JPL6zB_tWkfAfCPbLnjpdtr1
+      md5: 814e380c2f919555d2990c700f3d4537
+      size: 13666
     - path: data/results/results.txt
       hash: md5
-      md5: de64d03317a4972caba7a78ee865c322
-      size: 48
-      cloud:
-        aws:
-          etag: de64d03317a4972caba7a78ee865c322
-          version_id: Swnt.qKIFFgg133CmEJ3FoTbrOB79Gkt
+      md5: 4c24ed3cfccea4b4e08cc753e8a82f51
+      size: 51
