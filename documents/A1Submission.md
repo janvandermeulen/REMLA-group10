@@ -6,7 +6,7 @@ Pull request: https://github.com/janvandermeulen/REMLA-group10/pull/1 and https:
 Contributors: Shayan Ramezani and Jan van der Meulen
 Reviewers: Jan van der Meulen,  Shayan Ramezani, Michael Chan, and Remi Lejeune. 
 
-We chose poetry to handle all the packages. Instructions to set-up the project are added in the README. 
+We chose poetry to handle all the packages. Instructions to set-up the project are added in the README. The codebase was written such that DVC can do a step-by-ste- reproduction. 
 
 ### Task 2: Enable collaborative development through a pipeline management tool (DVC)
 Pull request: https://github.com/janvandermeulen/REMLA-group10/pull/4  
