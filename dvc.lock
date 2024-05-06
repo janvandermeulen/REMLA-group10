@@ -179,25 +179,39 @@ stages:
       size: 8366320
     - path: data/preprocess/y_val.npy
       hash: md5
-      md5: 1d5fa5d29393e97dbba3a5cd32813e14
-      size: 2060444
+      md5: 7d7c949969abb0303ea9373bf519cc84
+      size: 4120760
     - path: phishing-detection/phishing_detection/model_definition.py
+      hash: md5
+      md5: 55bf2a3bd2121357e99e4692aafa8e80
+      size: 2313
     - path: phishing-detection/phishing_detection/train.py
+      hash: md5
+      md5: 75a82a9d73ab0673dadbec5dc5594977
+      size: 1762
     outs:
     - path: data/model/initial_model.keras
       hash: md5
-      md5: 255cd6f4714465b48042fd4307213a5f
+      md5: 55fa8ca50eb9cbd41efeeb61517fd987
       size: 49737
+      cloud:
+        aws:
+          etag: 55fa8ca50eb9cbd41efeeb61517fd987
+          version_id: fuk3nIlB7oWebpJr1wIei0B_9ECHeI.6
     - path: data/model/trained_model.keras
       hash: md5
-      md5: cea8f013980cb2b9f982c56c10d9f773
+      md5: e44426bfc609504d8c358536c515327c
       size: 5472435
+      cloud:
+        aws:
+          etag: e44426bfc609504d8c358536c515327c
+          version_id: M4_Pdr8fKEXMEierQD5QaSLLkQU7_pGV
   test:
     cmd: python ./phishing-detection/phishing_detection/predict.py data
     deps:
     - path: data/model/trained_model.keras
       hash: md5
-      md5: cea8f013980cb2b9f982c56c10d9f773
+      md5: e44426bfc609504d8c358536c515327c
       size: 5472435
     - path: data/preprocess/X_test.npy
       hash: md5
@@ -205,19 +219,26 @@ stages:
       size: 291358528
     - path: data/preprocess/y_test.npy
       hash: md5
-      md5: 311ff57eefa708370ff251eabff39a65
-      size: 1456920
+      md5: 86612dc0b79d11ee7dcf2d30c62811eb
+      size: 2913712
     - path: phishing-detection/phishing_detection/predict.py
+      hash: md5
+      md5: 54883bf00811d49bb1f989fe9684b83d
+      size: 3042
     outs:
     - path: data/results/confusion_matrix.pdf
       hash: md5
-      md5: d43d5e73ad588cc473fd448e1561e4a2
-      size: 13645
-    - path: data/results/results.txt
-      hash: md5
-      md5: 4c24ed3cfccea4b4e08cc753e8a82f51
-      size: 51
+      md5: 6576b0f2b5717eeed323ebd9dd7887bb
+      size: 14154
       cloud:
         aws:
-          etag: 4c24ed3cfccea4b4e08cc753e8a82f51
-          version_id: 'null'
+          etag: 6576b0f2b5717eeed323ebd9dd7887bb
+          version_id: 7v9CKf_3JPL6zB_tWkfAfCPbLnjpdtr1
+    - path: data/results/results.txt
+      hash: md5
+      md5: de64d03317a4972caba7a78ee865c322
+      size: 48
+      cloud:
+        aws:
+          etag: de64d03317a4972caba7a78ee865c322
+          version_id: Swnt.qKIFFgg133CmEJ3FoTbrOB79Gkt
