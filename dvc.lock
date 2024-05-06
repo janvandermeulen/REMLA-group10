@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   prepare:
-    cmd: python .\phishing-detection\phishing_detection\get_data.py data
+    cmd: python ./phishing-detection/phishing_detection/get_data.py data
     deps:
     - path: data/test.txt
       hash: md5
@@ -15,66 +15,66 @@ stages:
       hash: md5
       md5: 7b1e28b1e91582c6f36e85517c3cc6ee
       size: 46258330
-    - path: phishing-detection\phishing_detection\get_data.py
+    - path: phishing-detection/phishing_detection/get_data.py
       hash: md5
-      md5: bdf8f521e5c27faa0d177946a2ceac54
-      size: 1848
+      md5: 19dd7b6be5f5d4155d3a186e400f328c
+      size: 1796
     outs:
     - path: data/raw/X_test.txt
       hash: md5
-      md5: 1563282b483d43739f43f425200044c5
-      size: 29407738
+      md5: 609e75fbf12e4f1ac9bdc1e40bf8c028
+      size: 29043540
     - path: data/raw/X_train.txt
       hash: md5
-      md5: e30e89161e21482d56537c6d0889db94
-      size: 84396770
+      md5: 761b3fe3977c171bc5451c08d217f9cb
+      size: 83350996
     - path: data/raw/X_val.txt
       hash: md5
-      md5: 7d004257a712e5265a5bd985aee42979
-      size: 41567033
+      md5: c74e4e1c602207a00f9a7d0b6f5cd612
+      size: 41051954
     - path: data/raw/y_test.txt
       hash: md5
-      md5: 2e3c9d7f5cfbbbaa9ab11e95747c6b88
-      size: 4045450
+      md5: ee87127d4d350f71855f7645118a14e2
+      size: 3681252
     - path: data/raw/y_train.txt
       hash: md5
-      md5: a2628fb8ca50c89fe1250772b8a50206
-      size: 11616282
+      md5: a1baa255faeadb22c2b820464989699e
+      size: 10570508
     - path: data/raw/y_val.txt
       hash: md5
-      md5: 3c330979d7cb08758fcd9d6feaf6aa04
-      size: 5721418
+      md5: e1b4662a77e310d40d02a627f0a5e26c
+      size: 5206339
   preprocess:
-    cmd: python .\phishing-detection\phishing_detection\preprocess.py data
+    cmd: python ./phishing-detection/phishing_detection/preprocess.py data
     deps:
     - path: data/raw/X_test.txt
       hash: md5
-      md5: 1563282b483d43739f43f425200044c5
-      size: 29407738
+      md5: 609e75fbf12e4f1ac9bdc1e40bf8c028
+      size: 29043540
     - path: data/raw/X_train.txt
       hash: md5
-      md5: e30e89161e21482d56537c6d0889db94
-      size: 84396770
+      md5: 761b3fe3977c171bc5451c08d217f9cb
+      size: 83350996
     - path: data/raw/X_val.txt
       hash: md5
-      md5: 7d004257a712e5265a5bd985aee42979
-      size: 41567033
+      md5: c74e4e1c602207a00f9a7d0b6f5cd612
+      size: 41051954
     - path: data/raw/y_test.txt
       hash: md5
-      md5: 2e3c9d7f5cfbbbaa9ab11e95747c6b88
-      size: 4045450
+      md5: ee87127d4d350f71855f7645118a14e2
+      size: 3681252
     - path: data/raw/y_train.txt
       hash: md5
-      md5: a2628fb8ca50c89fe1250772b8a50206
-      size: 11616282
+      md5: a1baa255faeadb22c2b820464989699e
+      size: 10570508
     - path: data/raw/y_val.txt
       hash: md5
-      md5: 3c330979d7cb08758fcd9d6feaf6aa04
-      size: 5721418
-    - path: phishing-detection\phishing_detection\preprocess.py
+      md5: e1b4662a77e310d40d02a627f0a5e26c
+      size: 5206339
+    - path: phishing-detection/phishing_detection/preprocess.py
       hash: md5
-      md5: 755b39e473c43e878554eb91c365223b
-      size: 3490
+      md5: 79ff87419fae0f3e0b6a8a2bd80f5891
+      size: 3403
     outs:
     - path: data/preprocess/X_test.npy
       hash: md5
@@ -94,16 +94,16 @@ stages:
       size: 639
     - path: data/preprocess/y_test.npy
       hash: md5
-      md5: 311ff57eefa708370ff251eabff39a65
-      size: 1456920
+      md5: 86612dc0b79d11ee7dcf2d30c62811eb
+      size: 2913712
     - path: data/preprocess/y_train.npy
       hash: md5
       md5: 9b660634af0db95a6e2932208bc73b91
       size: 8366320
     - path: data/preprocess/y_val.npy
       hash: md5
-      md5: 1d5fa5d29393e97dbba3a5cd32813e14
-      size: 2060444
+      md5: 7d7c949969abb0303ea9373bf519cc84
+      size: 4120760
   train:
     cmd:
     - python .\phishing-detection\phishing_detection\model_definition.py data
