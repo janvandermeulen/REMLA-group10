@@ -17,6 +17,7 @@ You can install the packages by running the following commands:
 
 To retrieve the data and run the pipeline:
 (this should be executed in the remla-group10 folder)
+- ```dvc fetch```
 - ```dvc pull``` (may not work)
 - ```dvc repro```
 
